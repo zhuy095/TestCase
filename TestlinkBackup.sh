@@ -6,16 +6,16 @@
 # 5.run commend : git config --global user.name "yongliang095"
 # 6.run commend : git config --global user.email "yongliang095@qq.com"
 # 7.add current scripting to crontab
-#   0 2 * * *  /root/TestCase/TestlinkBackup.sh
+#   0 2 * * *  /home/tl_bk/TestCase/TestlinkBackup.sh
 #
 # recover
 # tar xvfz testlink_back_*.tar.gz
 # mysql -u root -psunyainfo testlink < testlinkbackup.sql
 # cp -f nodes_hierarchy  /var/www/testlink/upload_area/
 
-BACKDIR=/root/backup/
+BACKDIR=/home/tl_bk/backup/
 BACKFILE="testlink_back_`date +20%y%m%d%H%M`.tar.gz"
-TARDIR=/root/TestCase/
+TARDIR=/home/tl_bk/TestCase/
 rm -fr $BACKDIR && mkdir -p $BACKDIR
 mysqldump -u root -psunyainfo testlink > $BACKDIR/testlinkbackup.sql
 cp -R /var/www/testlink/upload_area/nodes_hierarchy $BACKDIR
